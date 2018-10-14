@@ -42,3 +42,30 @@ int GetFirst(List<int> numbers)
     return numbers[0];
 }
 ```
+
+---
+# Examples
+use the school data from data.nashville.gov
+
+O(1)
+get the first item from the list
+calculate the similarity score between two schools
+
+O(n)
+find all schools in a zip code
+Find the school with the most students
+
+O(log n)
+order the schools by name and search by name
+
+O(n^2)
+find the similarity score between each school
+
+O(n log n)
+find a school by name and do a similarity score between it and all the others
+
+O(a^n)
+...some sort of permutation thing...
+
+O(n!)
+...I don't know
