@@ -1,18 +1,44 @@
 class: center, middle
 
-# Title
+# Big O
+### _simplifying the complexity_
+
+---
+## who am i?
+
+* CS degree from MTSU in 2000
+* Professional developer, mostly web development
+* Dabbled in management and architecture
+* Currently an instructor at the Nashville Software School
+
+
+* https://twitter.com/askingalot
+* https://github.com/askingalot
+* https://www.linkedin.com/in/andy-collins
+
+---
+## agenda
+
+1. Definitions
+2. An informal approach to measuring complexity
+3. A (_slightly_) more formal appraoch
+4. Concrete examples
 
 ---
 
-# Agenda
+## definitions
 
-1. Introduction
-2. Deep-dive
-3. ...
+_**Big O notation**_ is a mathematical notation that describes the limiting behavior of a function when the argument tends towards a particular value or **infinity**.
+
+In computer science, big O notation is used to classify **algorithms** according to how their **running time** or **space requirements** grow as the input size grows.
 
 ---
 
-# Introduction
+## some code
 
-foo!
-BAR!
+```cs
+int GetFirst(List<int> numbers)
+{
+    return numbers[0];
+}
+```
