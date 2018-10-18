@@ -9,13 +9,54 @@ namespace Examples {
         static void Main (string[] args) { 
             var schools = GetSchools();
 
+            // O(1)
+            var score = CalculateSimilarityScore(schools[3], schools[10]);
+
+            // O(n)
+            var twoRiversMiddle = GetByName(schools, "Two Rivers Middle");
+            Console.WriteLine(twoRiversMiddle);
+
+            // O(log n)
+            var sorted = schools.OrderBy(s => s.SchoolName).ToList();
+            var percyPriestElementary = GetByNameSorted(sorted, "Percy Priest Elementary");
+            Console.WriteLine(percyPriestElementary);
+
+
             var first = schools.First();
             Console.WriteLine($"Computing Similarity to {first}");
-            foreach (var school in schools) {
+            foreach (var school in schools.Take(10)) {
                 Console.WriteLine($"{school}: " +
                     CalculateSimilarityScore(first, school)
                 );
             }
+        }
+
+        private static School GetByName(List<School> schools, string name) {
+            School found = null;
+            foreach (var school in schools) {
+                if (school.SchoolName == name) {
+                    found = school;
+                }
+            }
+            return found;
+        }
+
+        private static School GetByNameSorted(List<School> schools, string name) {
+            School found = null;
+            var start = 0;
+            var end = schools.Count - 1;
+            while (start < end) {
+                var mid = end - start;
+                if (schools[mid].SchoolName == name) {
+                    found = schools[mid];
+                    break;
+                } else if (schools[mid].SchoolName.CompareTo(name) < 0) {
+                    start = mid + 1;
+                } else {
+                    end = mid - 1;
+                }
+            }
+            return found;
         }
 
         private static int CalculateSimilarityScore(School a, School b) {
