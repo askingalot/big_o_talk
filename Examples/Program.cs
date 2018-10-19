@@ -27,10 +27,10 @@ namespace Examples {
 
             /*********************************************************************/
             // O(n * log n)
-            var (mcGavock, mcGavockResults) = FindAndScore(sorted, "McGavock High");
+            var (mcGavockHigh, mcGavockHighResults) = FindAndScore(sorted, "McGavock High");
             Console.WriteLine("---------------------");
-            Console.WriteLine(mcGavock);
-            foreach (var (school, score) in mcGavockResults) {
+            Console.WriteLine(mcGavockHigh);
+            foreach (var (school, score) in mcGavockHighResults) {
                 Console.WriteLine($"{school} -> {score}");
             }
 
