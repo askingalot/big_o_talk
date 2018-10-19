@@ -26,7 +26,7 @@ namespace Examples {
             Console.WriteLine(percyPriestElementary);
 
             /*********************************************************************/
-            // O(n * log n)
+            // O(n + log n)
             var (mcGavockHigh, mcGavockHighResults) = FindAndScore(sorted, "McGavock High");
             Console.WriteLine("---------------------");
             Console.WriteLine(mcGavockHigh);
