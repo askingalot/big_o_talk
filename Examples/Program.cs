@@ -6,7 +6,38 @@ using CsvHelper;
 
 namespace Examples {
     class Program {
-        static void Main (string[] args) { 
+
+        static void Main(string[] args) {
+            PrintRectangleArea(2, 4);
+            
+        }
+
+        static void PrintRectangleStats(int length, int width) {
+            var area = length * width;
+            var perimeter = (length + width) * 2;
+            var isSquare = length == width;
+            Console.WriteLine("The area is " + area);
+            Console.WriteLine("The perimeter is " + perimeter);
+            if (isSquare) {
+                Console.WriteLine("It is a square");
+            } else {
+                Console.WriteLine("It is not a square");
+            }
+        }
+
+        static void PrintRectangleArea_1(int length, int width) {
+            var area = length * width;
+            string message;
+            if (area == 0) {
+                message = "You ain't got a rectangle, buddy.";
+            } else {
+                message = "The area is " + area;
+            }
+            Console.WriteLine(message);
+        }
+
+
+        static void _Main (string[] args) { 
             var schools = GetSchools();
 
             /*********************************************************************/
