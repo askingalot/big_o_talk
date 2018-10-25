@@ -66,6 +66,19 @@ static void PrintRectangleStats(int length, int width) {
 * How much time does it take for this code to run?
 
 ---
+## how long will it run?
+
+```cs
+static void PrintSquares(List<int> numbers) {
+    foreach (var num in numbers) {
+        var square = num * num;
+        var message = "The square of " + num + " is " + square;
+        Console.WriteLine(message);
+    }
+}
+```
+
+---
 ## definitions
 
 _**Big O notation**_ is a mathematical notation that describes the limiting behavior of a function when the argument tends towards a particular value or **infinity**.

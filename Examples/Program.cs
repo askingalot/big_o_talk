@@ -8,7 +8,7 @@ namespace Examples {
     class Program {
 
         static void Main(string[] args) {
-            PrintRectangleArea(2, 4);
+            PrintRectangleStats(2, 4);
             
         }
 
@@ -16,8 +16,10 @@ namespace Examples {
             var area = length * width;
             var perimeter = (length + width) * 2;
             var isSquare = length == width;
+
             Console.WriteLine("The area is " + area);
             Console.WriteLine("The perimeter is " + perimeter);
+
             if (isSquare) {
                 Console.WriteLine("It is a square");
             } else {
@@ -25,15 +27,11 @@ namespace Examples {
             }
         }
 
-        static void PrintRectangleArea_1(int length, int width) {
-            var area = length * width;
-            string message;
-            if (area == 0) {
-                message = "You ain't got a rectangle, buddy.";
-            } else {
-                message = "The area is " + area;
+        static void PrintSquares(List<int> numbers) {
+            foreach (var num in numbers) {
+                var square = num * num;
+                Console.WriteLine("The square of " + num + " is " + square);
             }
-            Console.WriteLine(message);
         }
 
 
