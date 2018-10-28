@@ -4,7 +4,7 @@ class: center, middle
 ### _simplifying the complexity_
 
 ---
-## who am i?
+## Who am I?
 
 .no-bullets[
 * CS degree from MTSU in 2000
@@ -19,7 +19,7 @@ class: center, middle
 ]
 
 ---
-## goals of this talk
+## Goals of this talk
 
 **After this talk you should...**
 1. Be able to explain the basics of Big O notation and algorithmic complexity
@@ -34,7 +34,7 @@ class: center, middle
 1. A discussion of space complexity
 
 ---
-## agenda
+## Agenda
 
 1. Informal analysis
 1. What is Big O?
@@ -43,7 +43,21 @@ class: center, middle
 1. Topics of further study
 
 ---
-## how long will it run?
+## How long will it run?
+```cs
+static int SumThree(int a, int b, int c) {
+    int sum;
+    sum = a = b;
+    sum += c;
+    return sum;
+}
+```
+* How many operations does this code perform?
+* What the heck is an "operation"?
+* How much time does it take for this code to run?
+
+---
+## How long will it run?
 
 ```cs
 static void PrintRectangleStats(int length, int width) {
@@ -61,12 +75,9 @@ static void PrintRectangleStats(int length, int width) {
     }
 }
 ```
-* How many operations does this code perform?
-* What the heck is an "operation"?
-* How much time does it take for this code to run?
 
 ---
-## how long will it run?
+## How long will it run?
 
 ```cs
 static void PrintSquares(List<int> numbers) {
@@ -77,13 +88,47 @@ static void PrintSquares(List<int> numbers) {
     }
 }
 ```
+---
+## Big Oh!
+What is it?
+* A way to specify the **relative** (e.g. _not exact_) performance of some code.
+* A mathematical **notation** for describing the **order** of a piece of code.
+* Used to put code into a category based on it's performance.
+* Focuses on **worst case** performance (where N becomes very large).
 
 ---
-## definitions
+## Big Oh!
+What is it?
+* A way to specify the **relative** (e.g. _not exact_) performance of some code.
+* A mathematical **notation** for describing the **order** of a piece of code.
+* Used to put code into a category based on it's performance.
+* Focuses on **worst case** performance (where N becomes very large).
+
+More formally... (_from wikipedia_)
 
 _**Big O notation**_ is a mathematical notation that describes the limiting behavior of a function when the argument tends towards a particular value or **infinity**.
 
 In computer science, big O notation is used to classify **algorithms** according to how their **running time** or **space requirements** grow as the input size grows.
+
+---
+## Algorithm?
+What's an algorithm?
+* A set of steps to solve a problem or perform a task.
+* Very precise description of the steps.
+* Any code can be thought of as an algorithm.
+* Lots ot known algorithms for sorting, searching, traversing trees and graphs, etc...
+
+---
+## Algorithm?
+What's an algorithm?
+* A set of steps to solve a problem or perform a task.
+* Very precise description of the steps.
+* Any code can be thought of as an algorithm.
+* Lots ot known algorithms for sorting, searching, traversing trees and graphs, etc...
+
+<br/>
+**For our purposes today...**
+### An algorithm is some code in a C# method.
 
 ---
 

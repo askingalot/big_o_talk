@@ -12,6 +12,13 @@ namespace Examples {
             
         }
 
+        static int SumThree(int a, int b, int c) {
+            int sum;
+            sum = a = b;
+            sum += c;
+            return sum;
+        }
+
         static void PrintRectangleStats(int length, int width) {
             var area = length * width;
             var perimeter = (length + width) * 2;
