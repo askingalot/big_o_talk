@@ -19,7 +19,7 @@ class: center, middle
 ]
 
 ---
-## Goals of this talk
+## Goals of this Talk
 
 **After this talk you should...**
 1. Be able to explain the basics of Big O notation and algorithmic complexity
@@ -36,11 +36,134 @@ class: center, middle
 ---
 ## Agenda
 
-1. Informal analysis
 1. What is Big O?
-1. Why does it matter?
-1. A tour of example algorithms
-1. Topics of further study
+1. Some simple examples
+1. Comparison of orders of magnitude
+1. Resources and ideas for further study
+
+
+---
+## What is Big O?
+
+.center.big[_An way to describe the_]
+
+.center.bigger[**worst case**]
+
+.center.bigger[**complexity**]
+
+.center.big[_(in time and/or space)_]
+
+.center.big[_of an_]
+
+.center.bigger[**algorithm**]
+
+???
+Define these terms in reverse
+
+Algorithm - a set of steps to be followed in order to produce some result
+
+Complexity - how big the algorithm is...how long, how much memory. only talk about time
+
+Worst case - as input goes to infinity
+
+---
+## Worst Case Complexity
+
+_This function is O(n)_
+
+```cs
+public bool ContainsNumber(List<int> list, int number) {
+    foreach (var n in list) {
+        if (n == number) {
+            return true;
+        }
+    }
+    return false;
+}
+```
+???
+Big O of N - Order of N / this function is Order N
+
+What's the best case? - number is the first element
+
+Worst case, it's no in the list
+
+What's the average case? - assume list is unordered
+
+---
+## More about Big O
+
+.big[
+* Mathematical notation
+* An approximation
+* Concerned with how quickly complexity increases
+* Used to classify algorithms
+]
+
+???
+* Mathematical notation
+* An approximation - NOT EXACT
+* Concerned with how quickly complexity increases - As size of input increases
+* Used to classify algorithms - algorithms fall into categories
+
+---
+## Orders of Magnitude
+
+.no-bullets.bigger[
+* 0 - 9
+* 10 - 99
+* 100 - 999
+* 1000 - 9999
+]
+
+???
+Think about money
+* piece of candy - a few cents
+* a cup of coffee - a few dollars
+* A nice shirt - a few 10's of dollars
+* a weekend in a hotel - a few 100s of dollars
+* a new laptop - a few 1000s of dollars
+
+
+---
+## O(n) - Linear Time
+```cs
+public void PrintList(List<string> strings) {
+    foreach(var str in strings) {
+        var fromTheRoofTops = str.ToUpper();
+        fromTheRoofTops = fromTheRoofTops + "!!!!";
+        Console.WriteLine(fromTheRoofTops);
+    }
+}
+```
+
+???
+* Big O is an approximation
+* each iteration of the loop will take the same time
+* what matters is the number of times we loop
+
+
+---
+## O(1) - Constant Time
+```cs
+static int SumThree(int a, int b, int c) {
+    int sum;
+    sum = a = b;
+    sum += c;
+    return sum;
+}
+```
+
+???
+* no matter the size of the input
+* always takes the same time
+
+---
+## Graphing Big O
+
+### O(1)
+
+### O(n)
 
 ---
 ## How long will it run?
@@ -131,15 +254,87 @@ What's an algorithm?
 ### An algorithm is some code in a C# method.
 
 ---
+## Counting operations
 
-## some code
+How many operations are executed?
 
 ```cs
-int GetFirst(List<int> numbers)
-{
-    return numbers[0];
+public void PrintList(List<string> strings) {
+    foreach(var str in strings) {
+        Console.WriteLine(str);
+    }
 }
 ```
+---
+## Counting operations
+
+How many operations are executed?
+
+```cs
+public void PrintList(List<string> strings) {
+    foreach(var str in strings) {
+        Console.WriteLine(str);
+    }
+}
+```
+<br/>
+What about now?
+
+```cs
+public void PrintList(List<string> strings) {
+    foreach(var str in strings) {
+        var fromTheRoofTops = str.ToUpper();
+        fromTheRoofTops = fromTheRoofTops + "!!!!";
+        Console.WriteLine(fromTheRoofTops);
+    }
+}
+```
+---
+## Counting operations
+How many operations are executed?
+
+Let's break it down...
+```cs
+public void PrintList(List<string> strings) {
+    foreach (var str in strings) { 
+        Console.WriteLine(str); 
+    }
+}
+```
+---
+## Counting operations
+How many operations are executed?
+
+Let's break it down...
+```cs
+public void PrintList(List<string> strings) {
+    foreach (var str in strings) { 
+        Console.WriteLine(str); 
+    }
+}
+```
+**`(1 assignment + 1 WriteLine) * N iterations = 2N Operations`**
+
+---
+## Counting operations
+```cs
+public void PrintList(List<string> strings) {
+    foreach(var str in strings) {
+        var fromTheRoofTops = str.ToUpper();
+        fromTheRoofTops = fromTheRoofTops + "!!!!";
+        Console.WriteLine(fromTheRoofTops);
+    }
+}
+```
+**`N * (3 assignment + 1 ToUpper + 1 concat + 1 WriteLine) = 6N`**
+---
+## Counting operations
+
+### So 2N < 6N, right?
+
+## YES!
+
+###**But Big O _Doesn't Care_**
 
 ---
 # Examples

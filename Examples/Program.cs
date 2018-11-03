@@ -10,6 +10,24 @@ namespace Examples {
         static void Main(string[] args) {
             PrintRectangleStats(2, 4);
             
+            "foo".ToUpper();
+        }
+
+        public bool ContainsNumber(List<int> list, int number) {
+            foreach (var n in list) {
+                if (n == number) {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        public void PrintList(List<string> strings) {
+            foreach(var str in strings) {
+                var fromTheRoofTops = str.ToUpper();
+                fromTheRoofTops = fromTheRoofTops + "!!!!";
+                Console.WriteLine(fromTheRoofTops);
+            }
         }
 
         static int SumThree(int a, int b, int c) {
