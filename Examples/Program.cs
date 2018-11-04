@@ -11,9 +11,79 @@ namespace Examples {
             PrintRectangleStats(2, 4);
             
             "foo".ToUpper();
+
+            var list = new List<int> { 1, 22, 8, 43, 7, 8, 1, 22 };
+            var sorted = list.OrderBy(n => n).ToList();
+
+            if (ContainsNumber(list, 7)) {
+                Console.WriteLine("it's in there!");
+            }
+
+            if (ContainsNumberBinarySearch(sorted, 22)) {
+                Console.WriteLine("it's in there!");
+            }
+
+            Console.WriteLine(string.Join(", ", FindDuplicates(list)));
+
+            var perms = Permutations(new List<int> {1, 2, 3, 4});
+            foreach (var perm in perms) {
+                Console.WriteLine(string.Join(", ", perm));
+            }
+            Console.WriteLine(perms.Count);
+
+
+            var bins = AllBinaryNumbers(5);
+            Console.WriteLine(string.Join(", ", bins));
         }
 
-        public bool ContainsNumber(List<int> list, int number) {
+        public static List<string> AllBinaryNumbers(int numDigits) {
+            var result = new List<string>();
+            var num = 0;
+
+            for (var i=0; i<Math.Pow(2, numDigits); i++) {
+                result.Add(
+                    Convert.ToString(num, 2).PadLeft(numDigits, '0')
+                );
+                num++;
+            }
+            return result;
+        }
+
+        public static List<List<int>> Permutations(List<int> list) {
+            if (list.Count == 1) {
+                return new List<List<int>> { list };
+            }
+
+            var result = new List<List<int>>();
+            for (var i=0; i<list.Count; i++) {
+                var listWithoutI = list.Where((_, idx) => idx != i).ToList();
+
+                var permsWithoutI = Permutations(listWithoutI);
+
+                result.AddRange(
+                    permsWithoutI.Select(p => {
+                        p.Insert(0, list[i]);
+                        return p;
+                    })
+                );
+            }
+            return result;
+        }
+
+        public static List<int> FindDuplicates(List<int> list) {
+            var result = new List<int>();
+            for (var i=0; i<list.Count; i++) {
+                for  (var j=i+1; j<list.Count; j++) {
+                    if (i == j) continue;
+                    if (list[i] == list[j]) {
+                        result.Add(list[i]);
+                    }
+                }
+            }
+            return result;
+        }
+
+        public static bool ContainsNumber(List<int> list, int number) {
             foreach (var n in list) {
                 if (n == number) {
                     return true;
@@ -21,6 +91,26 @@ namespace Examples {
             }
             return false;
         }
+
+        public static bool ContainsNumberBinarySearch(List<int> list, int number) {
+            return innerSearch(0, list.Count - 1);
+
+            bool innerSearch(int first, int last) {
+                if (first > last) {
+                    return false;
+                }
+
+                var mid = (first + last) / 2;
+                if (number == list[mid]) {
+                    return true;
+                }
+                if (number < list[mid]) {
+                    return innerSearch(first, mid - 1);
+                }
+                return innerSearch(mid + 1, last);
+            }
+        }
+
 
         public void PrintList(List<string> strings) {
             foreach(var str in strings) {
