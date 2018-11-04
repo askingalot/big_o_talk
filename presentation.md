@@ -118,6 +118,8 @@ What's the average case? - assume list is unordered
 * An approximation
 * Concerned with how quickly complexity increases
 * Used to classify algorithms
+* Ignore constants
+* Only include most significant term
 ]
 
 ???
@@ -125,6 +127,10 @@ What's the average case? - assume list is unordered
 * An approximation - NOT EXACT
 * Concerned with how quickly complexity increases - As size of input increases
 * Used to classify algorithms - algorithms fall into categories
+
+We'll see this in a minute...
+* Ignore constants
+* Only include most significant term
 
 ---
 ## Orders of Magnitude
@@ -464,9 +470,10 @@ public static List<List<int>> Permutations(List<int> list) {
 ]
 
 ???
-* When you need 
+* Brute force search
 
-* n from 0 to 5
+* notice -  n from 0 to 5
+* gets big fast
 
 ---
 ## Graphing O(n!)
