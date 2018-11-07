@@ -509,11 +509,20 @@ public static List<List<int>> Permutations(List<int> list) {
 ]
 
 ---
+## Wikipedia Definitions
+.no-bullets.big[
+> **Big O Notation** - A mathematical notation that describes the limiting behavior of a function when the argument tends towards a particular value or infinity. In computer science, big O notation is used to classify algorithms according to how their running time or space requirements grow as the input size grow
+
+> **Time Complexity** - The computational complexity that describes the amount of time it takes to run an algorithm. Time complexity is commonly estimated by counting the number of elementary operations performed by the algorithm, supposing that each elementary operation takes a fixed amount of time to perform.
+]
+
+---
 ## Resources
 .big[
-* Big-O Cheatsheet http://bigocheatsheet.com/
+* Big O Cheatsheet http://bigocheatsheet.com/
+* Big O Notation https://en.wikipedia.org/wiki/Big_O_notation
 * Time Complexity https://en.wikipedia.org/wiki/Time_complexity
-* Big-O Notation (AP Computer Science) http://www.apcomputerscience.com/apcs/misc/BIG-O.pdf
+* Big O Notation (AP Computer Science) http://www.apcomputerscience.com/apcs/misc/BIG-O.pdf
 * Plain English Explanation of Big O Notation http://www.cforcoding.com/2009/07/plain-english-explanation-of-big-o.html
 * YouTube - just search for Big O Notation
 ]
@@ -521,4 +530,9 @@ public static List<List<int>> Permutations(List<int> list) {
 ---
 ## Where to Next?
 
-* P
+.big[
+* P vs NP https://en.wikipedia.org/wiki/P_versus_NP_problem
+* List of unsolved problems in computer science https://en.wikipedia.org/wiki/List_of_unsolved_problems_in_computer_science
+* Algorithm Courses (Coursera) https://www.coursera.org/courses?query=algorithms
+* MIT Open Courseware https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/
+]
