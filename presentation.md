@@ -62,7 +62,7 @@ class: center, middle
 ---
 ## What is Big O?
 
-.center.big[_An way to describe the_]
+.center.big[_A way to describe the_]
 
 .center.bigger[**worst case**]
 
@@ -76,7 +76,7 @@ class: center, middle
 
 ???
 
-An way to describe the **worst case** **complexity** (in time and/or space) of an **algorithm**
+A way to describe the **worst case** **complexity** (in time and/or space) of an **algorithm**
 
 Define these terms in reverse
 
@@ -175,7 +175,7 @@ public void PrintList(List<string> strings) {
 ```cs
 static int SumThree(int a, int b, int c) {
     int sum;
-    sum = a = b;
+    sum = a + b;
     sum += c;
     return sum;
 }
@@ -446,7 +446,8 @@ public static List<List<int>> Permutations(List<int> list) {
 
     var result = new List<List<int>>();
     for (var i=0; i<list.Count; i++) {
-        var listWithoutI = list.Where((_, idx) => idx != i).ToList();
+        var listWithoutI = 
+            list.Where((_, idx) => idx != i).ToList();
         var permsWithoutI = Permutations(listWithoutI);
 
         result.AddRange(
@@ -470,7 +471,9 @@ public static List<List<int>> Permutations(List<int> list) {
 ]
 
 ???
-* Brute force search
+* Brute force search of a problem space
+* Finding the optimal route between multiple locations
+* Travelling salesman problem
 
 * notice -  n from 0 to 5
 * gets big fast
@@ -498,6 +501,27 @@ public static List<List<int>> Permutations(List<int> list) {
 
 ???
 * n from 0 to 7
+
+---
+## Comparing Them All
+.graph[
+![all big o](images/allbigo.jpeg "all big o")
+]
+
+---
+## Resources
+.big[
+* Big-O Cheatsheet http://bigocheatsheet.com/
+* Time Complexity https://en.wikipedia.org/wiki/Time_complexity
+* Big-O Notation (AP Computer Science) http://www.apcomputerscience.com/apcs/misc/BIG-O.pdf
+* Plain English Explanation of Big O Notation http://www.cforcoding.com/2009/07/plain-english-explanation-of-big-o.html
+* YouTube - just search for Big O Notation
+]
+
+---
+## Where to Next?
+
+* P
 
 ---
 ## How long will it run?
